@@ -1,0 +1,297 @@
+/* Global Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #1a472a; 
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px 10px; /* Giảm padding trên mobile */
+}
+
+.app-container {
+  background-color: #245e38;
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px; /* Thu hẹp max-width cho giống app mobile hơn */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #a8f0c0;
+  font-size: 1.5rem;
+}
+
+/* Quick Jump Bar (New) */
+.quick-jump-container {
+  margin-bottom: 1.5rem;
+  background: rgba(0,0,0,0.2);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.quick-jump-label {
+  font-size: 0.8rem;
+  color: #81c784;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.quick-jump-list {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 5px;
+}
+
+/* Custom Scrollbar cho list ngang */
+.quick-jump-list::-webkit-scrollbar {
+  height: 4px;
+}
+.quick-jump-list::-webkit-scrollbar-thumb {
+  background: #4caf50; 
+  border-radius: 2px;
+}
+
+.date-chip {
+  background: #1b5e20;
+  border: 1px solid #43a047;
+  color: #e8f5e9;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.date-chip:hover {
+  background: #2e7d32;
+}
+
+.date-chip.active {
+  background: #ffffff; /* Nền trắng nổi bật */
+  color: #1a472a;      /* Chữ xanh đậm tối đa */
+  font-weight: 800;    /* Chữ đậm hơn */
+  border: 2px solid #4caf50; /* Viền xanh sáng để nhấn mạnh */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Thêm bóng đổ nhẹ */
+  transform: scale(1.05); /* Phóng to nhẹ để báo hiệu đang chọn */
+}
+
+.date-chip.urgent {
+  border-color: #ff5252;
+  color: #ff5252; /* Đỏ tươi rực rỡ */
+  font-weight: 600;
+}
+
+.badge {
+  background: #ff5252;
+  color: white;
+  font-size: 0.7rem;
+  padding: 0 5px;
+  border-radius: 10px;
+  min-width: 16px;
+  text-align: center;
+}
+
+/* Date Controls */
+.date-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0 5px;
+}
+
+.date-picker-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.main-date-picker {
+  padding: 6px;
+  border-radius: 4px;
+  border: none;
+  background: #e8f5e9;
+  color: #1b5e20;
+  font-weight: bold;
+}
+
+.delete-day-btn {
+  background-color: transparent;
+  color: #ef9a9a;
+  border: 1px solid #ef9a9a;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+.delete-day-btn:hover {
+  background: #ef9a9a;
+  color: #b71c1c;
+}
+
+/* Input Group (Improved) */
+.input-group {
+  background: rgba(255,255,255,0.05);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.input-row {
+  margin-bottom: 10px;
+}
+
+.task-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+}
+
+.input-row-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.time-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
+  color: #a8f0c0;
+}
+
+.time-input {
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.add-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+  flex-grow: 1; /* Nút to ra lấp đầy khoảng trống */
+  max-width: 200px;
+}
+
+.add-btn:hover {
+  background-color: #43a047;
+}
+
+/* Todo List */
+.todo-list {
+  list-style: none;
+  padding-bottom: 20px;
+}
+
+.todo-item {
+  background-color: #ffffff;
+  color: #333;
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: grab;
+  position: relative;
+  touch-action: pan-y; /* Quan trọng cho mobile */
+}
+
+.todo-item:active {
+  cursor: grabbing;
+}
+
+.todo-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex: 1;
+  pointer-events: none;
+}
+
+.todo-content input {
+  pointer-events: auto;
+  margin-top: 4px;
+  width: 18px;
+  height: 18px;
+}
+
+.todo-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-text {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.todo-deadline {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+.swipe-hint {
+  font-size: 0.7rem;
+  color: #bbb;
+  margin-left: 8px;
+  min-width: 60px;
+  text-align: right;
+}
+
+/* Overdue Styling */
+.todo-item.overdue {
+  background-color: #fff3e0;
+  border-left: 5px solid #ff9800;
+}
+.todo-item.overdue .todo-text {
+  color: #e65100;
+}
+
+/* Completed Styling */
+.todo-item.completed {
+  background-color: #e8f5e9;
+  opacity: 0.7;
+}
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: #4caf50;
+}
+
+.empty-state {
+  text-align: center;
+  color: #a8f0c0;
+  margin-top: 20px;
+  opacity: 0.6;
+}
